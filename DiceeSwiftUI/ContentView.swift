@@ -52,7 +52,9 @@ struct DiceView: View {
     let n: Int
     
     var body: some View {
-        Image("dice\(n)").resizable().aspectRatio(1.0, contentMode: .fit)
+        Image("dice\(n)").resizable()
+            .aspectRatio(1.0, contentMode: .fit)
+            .padding()
     }
 }
 
