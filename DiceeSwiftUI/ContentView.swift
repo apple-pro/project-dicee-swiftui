@@ -9,8 +9,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, World!")
+        ZStack {
+            Image("background")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                Image("diceeLogo")
+                
+                Spacer()
+                
+                HStack {
+                    
+                    DiceView(n:2)
+                    DiceView(n:3)
+                }.padding(.horizontal)
+                
+                Spacer()
+                
+                Button(action: {
+                    print("Roll!")
+                }) {
+                    Text("Roll")
+                        .font(.system(size: 50))
+                        .fontWeight(.heavy)
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                }.background(Color.red)
+                
+            }
+        }
+    }
+}
+
+struct DiceView: View {
+    
+    let n: Int
+    
+    var body: some View {
+        Image("dice\(n)").resizable().aspectRatio(1.0, contentMode: .fit)
     }
 }
 
